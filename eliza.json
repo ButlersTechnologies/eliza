@@ -1,0 +1,49 @@
+{
+  "versionLabel": "Eliza v1",
+  "agentInfo": {
+    "languageCode": "en-US",
+    "projectId": "<PROJECT_ID>",
+    "invocationNames": [
+      "eliza"
+    ],
+    "voiceName": "female_1"
+  },
+  "actions": [
+    {
+      "description": "Start an Eliza consultation",
+      "initialTrigger": {
+        "intent": "assistant.intent.action.MAIN"
+      },
+      "httpExecution": {
+        "url": "https://104.196.233.167/"
+      }
+    },
+    {
+      "description": "Deep link to Eliza consultation",
+      "initialTrigger": {
+        "intent": "raw.input",
+        "queryPatterns": [
+          {
+            "queryPattern": "my emotional state is $SchemaOrg_Text:text"
+          },
+          {
+            "queryPattern": "I am concerned about $SchemaOrg_Text:text"
+          },
+          {
+            "queryPattern": "I am feeling $SchemaOrg_Text:text"
+          },
+          {
+            "queryPattern": "I need to talk about my feelings"
+          }
+        ]
+      },
+      "httpExecution": {
+        "url": "https://104.196.233.167/"
+      }
+    }
+  ],
+  "deploymentStatus": {
+    "state": "NEW"
+  },
+  "versionId": "1"
+}
